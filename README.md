@@ -1,5 +1,5 @@
 
-#Front-End Projeto Be Growth
+# Front-End Projeto Be Growth
 
 Este reposítório se trata da parte Front-End da aplicação desenvolvida para o processo seletivo da Be Growth. Está aplicação é uma complementação da aplicação [Back-End](https://github.com/AdoniroSalles/projectBeGrowth)
 
