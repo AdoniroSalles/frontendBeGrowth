@@ -1,0 +1,52 @@
+
+<div class="col-md-12 formCadastro">
+     <h2>Cadastro de Produto</h2>
+     <form [formGroup]="formCadastro" (submit)="cadastro()">
+          <div class="form-group">
+               <label for="nomeEmpresa">Nome da Empresa</label>
+               <input 
+                    #nomeProdutoInput
+                    formControlName="nomeEmpresa"
+                    type="text" 
+                    class="form-control" 
+                    id="nomeEmpresa"
+               >
+          </div>
+          <div class="form-group">
+               <label for="nomeProduto">Nome do Produto</label>
+               <input 
+                    #nomeProdutoInput
+                    formControlName="produto"
+                    type="text" 
+                    class="form-control" 
+                    id="nomeProduto"
+               >
+          </div>
+          <div class="form-group">
+               <label for="localColeta">Local de Coleta</label>
+               <input
+                    formControlName="localColeta" 
+                    class="form-control"
+                    type="text"
+                    id="localColeta">
+          </div>
+          <div class="form-group">
+               <label for="validadeProduto">Validade do produto</label>
+               <input
+                    formControlName="validadeProduto"
+                    class="form-control"
+                    id="validadeProduto"
+                    type="date">
+          </div>
+          <div class="row">
+               <div class="col-md-4">
+                    <button
+                         [disabled] = "formCadastro.invalid"
+                         type="submit"
+                         class="btn btn-primary btn-block">
+                         Cadastrar
+                    </button>
+               </div>
+          </div>
+     </form>
+</div>

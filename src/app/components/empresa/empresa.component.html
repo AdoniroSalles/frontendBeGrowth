@@ -1,0 +1,28 @@
+<app-form-cadastro (cadastroDado)="receberDados($event)"></app-form-cadastro>
+<div class="uk-card uk-card-default card-mgtop">
+  <div class="uk-card-">
+    <h3>Produtos Cadastrados</h3>
+  </div>
+  <div class="uk-overflow-auto uk-card-body">
+    <table class="uk-table uk-table-small uk-table-hover uk-table-divider uk-table ">
+      <thead>
+        <tr>
+          <th class="title" style="text-align: center;" *ngFor="let columns of displayedColumns">
+            {{ columns }}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empresa of empresas$" style="text-align: center;">
+          <td> {{ empresa.nomeEmpresa }} </td>
+          <td> {{ empresa.produto }} </td>
+          <td> {{ empresa.localColeta }} </td>
+          <td> {{ empresa.validadeProduto | date: 'dd/MM/yyyy' }} </td>
+          <td> {{ empresa.dataCadastro | date: 'dd/MM/yyyy' }} </td>
+          <td> <a  class="uk-icon-link" uk-icon="icon: file-edit" (click)="alterarProduto( empresa._id )"></a> </td>
+          <td> <a  class="uk-icon-link" uk-icon="trash" (click)="excluirProduto( empresa._id )"></a> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

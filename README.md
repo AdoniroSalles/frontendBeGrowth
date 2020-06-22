@@ -1,27 +1,45 @@
-# BegrowthFrontEnd
+# Front-End Projeto Be Growth
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Este reposítório se trata da parte Front-End da aplicação desenvolvida para o processo seletivo da Be Growth. Está aplicação é uma complementação da aplicação [Back-End](https://github.com/AdoniroSalles/projectBeGrowth)
 
-## Development server
+## Front-End
+O Front-End da aplicação foi desenvolvido em Angular 9.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Abaixo segue a estrutura do projeto
+```tree
+├───app
+│   ├───components
+│   │   ├───alterar-produto
+│   │   ├───empresa
+│   │   ├───entregador
+│   │   ├───form-cadastro
+│   │   └───message
+│   ├───core
+│   │   ├───auth
+│   │   └───interceptor
+│   ├───interfaces
+│   ├───services
+│   └───views
+│       ├───home-page
+│       └───login-page
+├───assets
+└───environments
+```
+Conforme foi pedido, exitem dois tipos de usuários diferentes, a empresa alimentícia e o entregador. Para tanto na aplicação front-end, há uma pagina de login para poder identificar o tipo de usuário. 
+Após feito o login o usuário será encaminhado para a página na qual o usuário tem acesso.
+Na página da empresa alimentícia, ela poderá cadastrar novos produtos e terá uma listagem de produtos. Já na página do entregador, terá uma tabela com os produtos que podem ser recolhidos, e os produtos que já foram recolhidos.
 
-## Code scaffolding
+Para poder rodar a aplicação, baixe ou clone o repositório no seu computador.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Rode o comando, para poder instalar as dependências:
+```
+npm install 
+```
 
-## Build
+2. Rode o comando, para poder inicializar o servidor
+```
+ng serve -o
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Se tudo der certo o projeto estará rodando na porta `http://localhost:4200`
+Não se esqueça de rodar a aplicação back-end para que tudo funcione corretamente. 

@@ -1,0 +1,76 @@
+<div class="card-mgtop">
+     <h1>Página do entregador</h1>
+</div>
+<div class="uk-card uk-card-default card-mgtop">
+     <form [formGroup]="formChecked" (submit)="submitChecked() ">
+
+          <div class="uk-overflow-auto uk-card-body">
+               <p>Selecione os produtos que deseja recolher e em seguida clique em confirmar</p>
+
+
+               <table class="uk-table uk-table-small uk-table-hover uk-table-divider uk-table ">
+                    <thead>
+                         <tr>
+                              <th class="title" style="text-align: center;" *ngFor="let columns of displayedColumns">
+                                   {{ columns }}</th>
+                              <th></th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr *ngFor="let empresa of empresas$" style="text-align: center;">
+                              <td> {{ empresa.nomeEmpresa }} </td>
+                              <td> {{ empresa.produto }} </td>
+                              <td> {{ empresa.localColeta }} </td>
+                              <td> {{ empresa.validadeProduto | date: 'dd/MM/yyyy' }} </td>
+                              <td> {{ empresa.dataCadastro | date: 'dd/MM/yyyy' }} </td>
+                              <td><input 
+                                   formControlName="checkbox"
+                                   class="uk-checkbox" 
+                                   [checked]="" 
+                                   type="checkbox"
+                                   (change)="checkedValue(empresa._id, $event.target.checked)" /></td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+          <div class="uk-card-footer">
+               <button 
+                    type="submit"
+                    [disabled] = "formChecked.invalid"  
+                    class="btn btn-success">
+                    Confirmar
+               </button>
+          </div>
+     </form>
+</div>
+<div class="uk-card uk-card-default card-mgtop ">
+          <div class="uk-overflow-auto uk-card-body">
+               <p>Lista de itens que já foram recolhidos</p>
+               
+               <ng-container *ngIf="itensRecolhidos; then thenTemplate; else elseTemplate"></ng-container>
+               <ng-template #thenTemplate>
+                    <table class="uk-table uk-table-small uk-table-hover uk-table-divider uk-table ">
+                         <thead>
+                              <tr>
+                                   <th class="title" style="text-align: center;" *ngFor="let columns of displayedColumns">
+                                        {{ columns }}</th>
+                                   <th></th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <tr *ngFor="let itensRecolhido of itensRecolhidos$" style="text-align: center;">
+                                   <td> {{ itensRecolhido.nomeEmpresa }} </td>
+                                   <td> {{ itensRecolhido.produto }} </td>
+                                   <td> {{ itensRecolhido.localColeta }} </td>
+                                   <td> {{ itensRecolhido.validadeProduto | date: 'dd/MM/yyyy' }} </td>
+                                   <td> {{ itensRecolhido.dataCadastro | date: 'dd/MM/yyyy' }} </td>
+                         </tbody>
+                    </table>
+               </ng-template>
+               <ng-template #elseTemplate>
+                    <ul class="ui-list">
+                         <li>Nenhum item recolhido</li> 
+                    </ul>
+               </ng-template>
+          </div>
+</div>
