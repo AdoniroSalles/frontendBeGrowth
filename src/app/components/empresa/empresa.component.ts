@@ -16,8 +16,8 @@ export class EmpresaComponent implements OnInit {
   dataSource
 
   constructor(
-    private serviceEmpresa : EmpresaService,
-    private router : Router
+    private serviceEmpresa: EmpresaService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,30 +27,38 @@ export class EmpresaComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['Nome Empresa', 'Produto', 'Local da Coleta', 'Validade do Produto', 'Data de Cadastro'];
-  
-  carregaProdutos(){
+
+  carregaProdutos() {
     this.serviceEmpresa.getProduct().subscribe(
-      res => { 
+      res => {
         let data = res
         this.empresas$ = data['empresaProduct']
-       
+
       }
     )
   }
-  
+
   //chamado apos ser cadastrado um produto
-	receberDados(event){
+  receberDados(event) {
     console.log(event)
-		this.carregaProdutos()
+    this.carregaProdutos()
   }
-  
+
   //chama rota para alterar produto
-  alterarProduto(id){
+  alterarProduto(id) {
     this.router.navigate(['/home/atualizar/', id])
   }
   //Para poder excluir um produto
-  excluirProduto(id){
+  excluirProduto(id) {
+
     console.log(id)
+    this.serviceEmpresa.deleteProduct(id)
+      .subscribe(
+        dados => {
+          this.carregaProdutos()
+          console.log('excluido')
+        }
+      )
   }
 
 }

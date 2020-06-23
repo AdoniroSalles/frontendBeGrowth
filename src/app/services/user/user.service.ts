@@ -46,7 +46,6 @@ export class UserService {
     this.userName = user['user'].username; //armazena o usuario
     this.empresa = user['user'].isEmpresa
     this.entregador = user['user'].isEntregador
-    console.log(user)
   }
 
   //faz o logout da aplicacao 

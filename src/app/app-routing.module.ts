@@ -10,8 +10,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./views/home-page/home-page.module').then(m => m.HomePageModule)
-  }
-  
+  },  
 
 ];
 

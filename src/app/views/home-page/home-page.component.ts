@@ -27,9 +27,6 @@ export class HomePageComponent implements OnInit {
     }
 
     const user = this.userService.getUser()
-    console.log(user)
-    console.log(this.entregador, this.empresa)
-
   }
 
   logout(){

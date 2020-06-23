@@ -36,7 +36,7 @@ Para poder rodar a aplicação, baixe ou clone o repositório no seu computador.
 npm install 
 ```
 
-2. Rode o comando, para poder inicializar o servidor
+2. É necessário que se tenha o Angular CLI instalado. Rode o comando, para poder inicializar o servidor
 ```
 ng serve -o
 ```

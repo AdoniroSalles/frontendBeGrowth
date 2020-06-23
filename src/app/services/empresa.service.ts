@@ -40,4 +40,9 @@ export class EmpresaService {
   updateProduct( updateProduct : ProdutoEmpresa[]){
     return this.http.put(API_URL + '/empresa', updateProduct)
   }
+
+  //delete produto
+  deleteProduct( id: string){
+    return this.http.delete(API_URL +'/empresa/' + id)
+  }
 }
