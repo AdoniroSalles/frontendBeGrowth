@@ -46,7 +46,7 @@ Não se esqueça de rodar a aplicação back-end para que tudo funcione corretam
 
 ### Algumas Observações
 Faltou ser implementado a tela para cadastro de usuários, no entando pode-se mandar os dados via curl ou por algum outro programa que faça o envio de dados via post, como Insomnia ou Postman.
-Para poder mandar seleciona o envio via post e mande os dados da maneira a baixo para a rota `http://localhost:3000/create` 
+Para poder mandar seleciona o envio via post e mande os dados da maneira a baixo para a rota `http://localhost:3000/create`. Não esqueça que a aplicação back-end deve estar rodando pra que funcione corretamente. 
 ```
 {
 	"username" : "User",
