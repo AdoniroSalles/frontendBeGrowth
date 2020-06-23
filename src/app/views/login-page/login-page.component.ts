@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -13,20 +15,32 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     private formBuilder : FormBuilder,
-    private router      : Router
+    private router      : Router,
+    private authService : AuthService
   ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      userName: ['', Validators.required],
+      userEmail: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
 
   login(){
 
-    const userName = this.loginForm.get('userName').value;
+    const userName = this.loginForm.get('userEmail').value;
     const password = this.loginForm.get('password').value;
+
+    this.authService.authenticate(userName, password)
+      .subscribe(
+        dados => {
+          console.log(dados)
+          this.router.navigate(['/home'])
+        },
+        erro => { 
+          console.log(erro)
+        }
+      )
 
     console.log(userName, password)
 

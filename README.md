@@ -52,7 +52,8 @@ Para poder mandar seleciona o envio via post e mande os dados da maneira a baixo
 	"username" : "User",
 	"email": "user@user.com",
 	"password": "user",
-	"password2": "uer"
-	
+	"password2": "user",
+	"isEmpregador": false ou true
+	"isEmpresa" : false ou true
 }
 ```

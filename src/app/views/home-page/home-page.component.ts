@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  empresa: boolean = false;
+  entregador:boolean = false
+  constructor(
+    private userService: UserService,
+    private router : Router
+  ) { }
 
   ngOnInit(): void {
+    
+    this.entregador = this.userService.getIsEntregador()
+    this.empresa    = this.userService.getIsEmpresa()
+
+    if(!this.entregador && !this.empresa ){
+      this.userService.logout()
+      this.router.navigate(['/'])
+    }
+
+    const user = this.userService.getUser()
+    console.log(user)
+    console.log(this.entregador, this.empresa)
+
+  }
+
+  logout(){
+    this.userService.logout()
   }
 
 }

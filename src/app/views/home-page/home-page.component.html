@@ -1,5 +1,7 @@
 <div class="container">
-     <!-- <app-entregador></app-entregador> -->
+     
+     <a [routerLink]="['/']"  class="btn btn-primary" (click)="logout()">Sair</a>
+     <app-entregador *ngIf="entregador"></app-entregador>
 
-     <app-empresa></app-empresa>
+     <app-empresa *ngIf="empresa"></app-empresa>
 </div>
